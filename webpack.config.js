@@ -8,8 +8,13 @@ const WriteFilePlugin = require("write-file-webpack-plugin");
 // const autoprefixer = require("autoprefixer");
 
 module.exports = {
-  entry: "./src/index.js",
+  // entry: "./src/index.js",
+  mode: process.env.NODE_ENV || 'development',
   devtool: "inline-source-map",
+  entry: [
+    'webpack-hot-middleware/client',
+    './client/index.js'
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: '/',

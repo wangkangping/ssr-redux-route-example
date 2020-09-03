@@ -32,7 +32,21 @@ const channels = (state = {}, action) => {
        return state;
   }
 };
+
+const counter = (state = 0, action) => {
+  switch (action.type) {
+    case 'SET_COUNTER':
+      return action.payload
+    case 'INCREMENT_COUNTER':
+      return state + 1
+    case 'DECREMENT_COUNTER':
+      return state - 1
+    default:
+      return state
+  }
+}
+
 // export default reducer;
 
-export default combineReducers({ todos, channels });
+export default combineReducers({ todos, channels, counter });
 // export default combineReducers({ todos, visibleFilter });
